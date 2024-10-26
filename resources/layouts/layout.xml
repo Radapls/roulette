@@ -1,0 +1,8 @@
+<layout id="MainLayout">
+    <bitmap id="roulette" x="center" y="center" filename="../drawables/roulette.png" />
+    <bitmap id="leftcorner" x="6" y="180" filename="../drawables/ball.png" />
+    <bitmap id="leftwing" x="59" y="362" filename="../drawables/ball.png" />
+    <bitmap id="topkey" x="center" y="426" filename="../drawables/ball.png" />
+    <bitmap id="rightwing" x="374" y="362" filename="../drawables/ball.png" />
+    <bitmap id="rightcorner" x="424" y="180" filename="../drawables/ball.png" />
+</layout>
