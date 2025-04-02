@@ -15,6 +15,10 @@ The **Roulette** app is a simple Garmin app developed using MonkeyC. It allows t
 3. The **number will be displayed** on the screen at a random position around the circle.
 4. Users can customize the meaning of the number (e.g., translating it to distance, time, etc.).
 
+## Compatibility
+
+The **Roulette** app is currently designed for the **Garmin Forerunner 965**. Compatibility with other Garmin devices has not been tested yet.
+
 ## Setup & Installation
 
 To use this app on a Garmin device, follow these steps:
@@ -33,6 +37,12 @@ To use this app on a Garmin device, follow these steps:
 5. **Launch the App**:
    - Once installed, launch the **Roulette** app on your Garmin device and start pressing buttons to cycle through the numbers.
 
+## Screenshots
+
+Here are some screenshots of the app in action:
+
+![Roulette App Screenshot 1](screenshots/running_roulette.png)
+
 ## Customization
 
 - You can modify the roulette numbers or logic based on your fitness goals. The app currently uses the standard roulette numbers (0, 1-36), but you can change the list to suit your needs.
@@ -41,7 +51,7 @@ To use this app on a Garmin device, follow these steps:
 ## Dependencies
 
 - **MonkeyC SDK**: The app is built using the MonkeyC SDK for Garmin devices.
-- **Garmin Device**: This app requires a Garmin device that supports the MonkeyC framework (e.g., Garmin FR965).
+- **Garmin Device**: This app requires a Garmin device that supports the MonkeyC framework.
 
 ## License
 
