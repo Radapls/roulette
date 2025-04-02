@@ -1,45 +1,60 @@
 import Toybox.Lang;
 import Toybox.WatchUi;
 import Toybox.System;
+import Toybox.Timer;
+import Toybox.Math;
 
+class RouletteDelegate extends WatchUi.BehaviorDelegate {
+    var view;
+    var randomIndex = 3;
+    var timer;
+    var animationDuration = 2000;
+    var isAnimating = false;
+    var elapsedTime = 0;
+    var interval = 100;
 
-var randomIndex=3;
-
-class rouletteDelegate extends WatchUi.BehaviorDelegate {
-
-    function initialize() {
+    function initialize(v as RouletteView) {
         BehaviorDelegate.initialize();
+        view = v;
+        timer = new Timer.Timer();
     }
 
     function onKey(key) {
-        System.println(key.getKey());
+        if (isAnimating) {
+            return false;
+        }
 
-        // When the user presses a button (e.g., key 4), increment randomIndex
         if (key.getKey() == 4) {
-            // If randomIndex is less than 36 (the last valid index), increment it
-            if (randomIndex < 36) {
-                randomIndex++;
-            } else {
-                // Wrap around back to 0 if randomIndex exceeds the array bounds (36)
-                randomIndex = 0;
-            }
-            WatchUi.requestUpdate();
+            startRouletteSpin();
             return true;
         }
 
-        // When the user presses another button (e.g., key 13), decrement randomIndex
-        if (key.getKey() == 13) {
-            // If randomIndex is greater than 0, decrement it
-            if (randomIndex > 0) {
-                randomIndex--;
-            } else {
-                // Wrap around to 36 if randomIndex goes below 0
-                randomIndex = 36;
-            }
+        return false;
+    }
+
+    function startRouletteSpin() {
+        isAnimating = true;
+        elapsedTime = 0;
+
+       timer.start(method(:spinRoulette), interval, true);
+    }
+
+    function spinRoulette() {
+        if (elapsedTime >= animationDuration) {
+            timer.stop();
+            isAnimating = false;
+
+            randomIndex = Math.rand() % 15;
+            view.setSelectedIndex(randomIndex);
+
             WatchUi.requestUpdate();
-            return true;
+            return;
         }
 
-        return false; // Pass unhandled keys to the system
+        randomIndex = Math.rand() % 15;
+        view.setSelectedIndex(randomIndex);
+
+        WatchUi.requestUpdate();
+        elapsedTime += interval;
     }
 }

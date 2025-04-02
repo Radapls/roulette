@@ -1,68 +1,57 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
 import Toybox.Math;
+import Toybox.System;
+import Toybox.Application;
 
+var x_center = 226.5;
+var y_center = 226.5;
+var radius = 200;
 
-var x_center = 230; // Adjust to match your watch display
-var y_center = 227; // Adjust to match your watch display
-var radius = 205;   // Adjust to control distance of numbers from center
+var rouletteNumbers = [
+                "0K", "2K", "5K", "8K", "10K", "15K", "18K", "21K",
+               "25K", "28K", "30K", "32K", "35K", "38K", "42K"];
 
-class rouletteView extends WatchUi.View {
+var selectedIndex = null;
 
-    function initialize() {
+class RouletteView extends WatchUi.View {
+
+        function initialize() {
         View.initialize();
     }
 
-    // Layout setup for the view
     function onLayout(dc as Dc) as Void {
         setLayout(Rez.Layouts.MainLayout(dc));
     }
 
-    // Called when this View is brought to the foreground
-    function onShow() as Void {
-        // Add any setup code here if needed
+    function setSelectedIndex(index) {
+        selectedIndex = index;
+        requestUpdate();
     }
 
-    // Calculate the angle for each number around the circle
     function getPositionAngle(pos) {
-        return (pos * 360.0 / 37.0) - 90; // Subtracting 90 to start from the top
+        return (pos * 360.0 / 15.0) - 90;
     }
 
     function onUpdate(dc as Dc) as Void {
         View.onUpdate(dc);
+        dc.setColor(Graphics.COLOR_PURPLE, Graphics.COLOR_PURPLE);
         dc.clear();
 
-        // Set text color to white and fully opaque
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+        for (var i = 0; i < rouletteNumbers.size(); i++) {
+            var angle = getPositionAngle(i);
+            var rad = angle * Math.PI / 180;
 
-        // Define the list of numbers
-        var numbers = ["0", "32", "15", "19", "4", "21", "2", "25", "17", "34", "6",
-                    "27", "13", "36", "11", "30", "8", "23", "10", "5", "24",
-                    "16", "33", "1", "20", "14", "31", "9", "22", "18", "29",
-                    "7", "28", "12", "35", "3", "26"];
+            var x = x_center + radius * Math.cos(rad);
+            var y = y_center + radius * Math.sin(rad);
 
-        // Select a random index from the numbers array
+            if (i == selectedIndex) {
+                dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
+            } else {
+                dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            }
 
-        // Get the number at the randomly selected index
-        var number = numbers[randomIndex];
-
-        // Calculate the angle for the randomly selected number
-        var angle = getPositionAngle(randomIndex);
-        var rad = angle * Math.PI / 180; // Convert to radians
-
-        // Calculate the position of the number on the circle
-        var x = x_center + radius * Math.cos(rad);
-        var y = y_center + radius * Math.sin(rad);
-
-        // Debugging output
-        System.println("Number: " + number + ", Position: (" + x + ", " + y + ")");
-
-        // Draw the number at the calculated position
-        dc.drawText(x, y, Graphics.FONT_XTINY, number, Graphics.TEXT_JUSTIFY_VCENTER);
-    }
-
-    // Called when this View is removed from the screen
-    function onHide() as Void {
-        // Add any cleanup code here if needed
+            dc.drawText(x, y, Graphics.FONT_SYSTEM_XTINY, rouletteNumbers[i], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        }
     }
 }
