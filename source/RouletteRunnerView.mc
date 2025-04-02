@@ -5,19 +5,12 @@ using Toybox.System;
 using Toybox.Application;
 
 
-    public var rouletteNumbers =
-    [
-        "0K", "2K", "5K", "8K", "10K", "15K", "18K", "21K",
-        "25K", "28K", "30K", "32K", "35K", "38K", "42K"
-    ];
+public var rouletteNumbers = ["0K", "2K", "5K", "8K", "10K", "15K", "18K", "21K","25K", "28K", "30K", "32K", "35K", "38K", "42K"];
+public var selectedIndex = null;
+public var itemSize = rouletteNumbers.size();
+public var winText = WatchUi.loadResource( Rez.Strings.WinTextLabel );
 
-    public var selectedIndex = null;
-
-    public var itemSize = rouletteNumbers.size();
-
-    var winText = WatchUi.loadResource( Rez.Strings.WinTextLabel );
-
-class RouletteView extends WatchUi.View {
+class RouletteRunnerView extends WatchUi.View {
     function initialize() {
         View.initialize();
     }

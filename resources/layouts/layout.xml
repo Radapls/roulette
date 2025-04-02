@@ -1,4 +1,2 @@
 <layout id="MainLayout">
-    <bitmap id="roulette" x="center" y="center" filename="../drawables/roulette.png" />
-    <bitmap id="tresr" x="center" y="center" filename="../drawables/ball.png" />
 </layout>

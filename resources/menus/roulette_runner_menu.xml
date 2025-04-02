@@ -1,4 +1,4 @@
-<menu id="RouletteMenu">
+<menu id="RouletteRunnerMenu">
 	<menu-item id="spin" label="@Strings.SpinMenuLabel" />
 	<menu-item id="exit" label="@Strings.ExitMenuLabel" />
 </menu>

@@ -1,6 +1,12 @@
-# Roulette App
+# Roulette Runner App
 
-The **Roulette** app is a simple Garmin app developed using MonkeyC. It allows the user to pick a random number from a roulette wheel, which can be used to determine distances to run, minutes to train, or other fitness-related values.
+The **Roulette Runner** app is a simple Garmin app developed using MonkeyC. It allows the user to pick a random number from a roulette wheel, which can be used to determine distances to run, minutes to train, or other fitness-related values.
+
+## Screenshots
+
+Here are some screenshots of the app in action:
+
+![Roulette App Screenshot 1](screenshots/image.png)
 
 ## Features
 
@@ -36,12 +42,6 @@ To use this app on a Garmin device, follow these steps:
 
 5. **Launch the App**:
    - Once installed, launch the **Roulette** app on your Garmin device and start pressing buttons to cycle through the numbers.
-
-## Screenshots
-
-Here are some screenshots of the app in action:
-
-![Roulette App Screenshot 1](screenshots/running_roulette.png)
 
 ## Customization
 

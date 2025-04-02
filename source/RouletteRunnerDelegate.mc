@@ -4,9 +4,9 @@ using Toybox.System;
 using Toybox.Timer;
 using Toybox.Math;
 
-class RouletteDelegate extends WatchUi.BehaviorDelegate {
+class RouletteRunnerDelegate extends WatchUi.BehaviorDelegate {
 
-    function initialize(v as RouletteView) {
+    function initialize(v as RouletteRunnerView) {
         BehaviorDelegate.initialize();
         view = v;
         timer = new Timer.Timer();
@@ -18,7 +18,7 @@ class RouletteDelegate extends WatchUi.BehaviorDelegate {
         }
 
         if (key.getKey() == 4) {
-            WatchUi.pushView( new Rez.Menus.RouletteMenu(), new RouletteMenuDelegate(), WatchUi.SLIDE_RIGHT);
+            WatchUi.pushView( new Rez.Menus.RouletteRunnerMenu(), new RouletteRunnerMenuDelegate(), WatchUi.SLIDE_RIGHT);
             return true;
         }
 
