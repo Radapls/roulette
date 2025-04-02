@@ -1,3 +1,9 @@
 <strings>
     <string id="AppName">Running Roulette</string>
+
+	<string id="SpinMenuLabel">Spin</string>
+	<string id="ExitMenuLabel">Exit</string>
+
+	<string id="WinTextLabel">Today you'll run: </string>
+
 </strings>
