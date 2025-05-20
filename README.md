@@ -1,6 +1,6 @@
 # Roulette Runner App
 
-The **Roulette Runner** app is a simple Garmin app developed using MonkeyC. It allows the user to pick a random number from a roulette wheel, which can be used to determine distances to run, minutes to train, or other fitness-related values.
+The **Roulette Runner** app allows the user to pick a random number of kilometers from a roulette wheel, which can be used to determine distances to run.
 
 ## Screenshots
 
@@ -10,20 +10,21 @@ Here are some screenshots of the app in action:
 
 ## Features
 
-- **Random Number Generation**: The app displays a random number from the roulette wheel each time a button is pressed.
-- **Customizable Use**: Users can adapt the generated number for different fitness purposes (e.g., distance to run, time to train).
-- **Interactive Interface**: The app allows users to interact by pressing buttons to cycle through the roulette numbers.
+- **Random Number Picker**: The app displays a random number from the roulette wheel each time a button is pressed.
 
 ## App Workflow
 
-1. **Press the button** to increment the current number in the roulette list.
-2. **Press the other button** to decrement the current number.
-3. The **number will be displayed** on the screen at a random position around the circle.
-4. Users can customize the meaning of the number (e.g., translating it to distance, time, etc.).
+The app have two options inside the app menu:
+1. Spin
+   **Press the start button** and then click the spin option to start the roulette.
+2. Exit
+   **Press the start button** and then click the spin option to start the roulette.
+
+After spin the roulette a random **number will be displayed** on the screen.
 
 ## Compatibility
 
-The **Roulette** app is currently designed for the **Garmin Forerunner 965**. Compatibility with other Garmin devices has not been tested yet.
+The **Roulette** app has just benn tested on the **Garmin Forerunner 965**. Compatibility with other Garmin devices will be added.
 
 ## Setup & Installation
 
@@ -45,13 +46,17 @@ To use this app on a Garmin device, follow these steps:
 
 ## Customization
 
-- You can modify the roulette numbers or logic based on your fitness goals. The app currently uses the standard roulette numbers (0, 1-36), but you can change the list to suit your needs.
-- The number shown can be mapped to various fitness metrics such as minutes, kilometers, or repetitions.
+- TBD
 
 ## Dependencies
 
 - **MonkeyC SDK**: The app is built using the MonkeyC SDK for Garmin devices.
 - **Garmin Device**: This app requires a Garmin device that supports the MonkeyC framework.
+
+## Roadmap
+- [ ] Add different values customization (ie. Time, reps, etc)
+- [ ] Add support for other Garmin Devices
+- [ ] Display options based on running distance objetives
 
 ## License
 
