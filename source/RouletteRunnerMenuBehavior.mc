@@ -24,5 +24,4 @@ class RouletteRunnerDelegate extends WatchUi.BehaviorDelegate {
 
         return false;
     }
-
 }

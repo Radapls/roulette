@@ -2,7 +2,13 @@
     <string id="AppName">Running Roulette</string>
 
 	<string id="SpinMenuLabel">Spin</string>
+	<string id="DistancesMenuLabel">Distances</string>
 	<string id="ExitMenuLabel">Exit</string>
+
+	<string id="DistanceMarathon" >Marathon</string>
+	<string id="DistanceHalfMarathon">Half Marathon</string>
+	<string id="DistanceTenKm" >10 KM</string>
+	<string id="DistanceFiveKm">5 KM</string>
 
 	<string id="WinTextLabel">Today you'll run: </string>
 w</strings>

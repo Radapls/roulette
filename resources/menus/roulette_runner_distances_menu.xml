@@ -1,0 +1,6 @@
+<menu id="RouletteRunnerDistancesMenu">
+	<menu-item id="marathon" label="@Strings.DistanceMarathon" />
+	<menu-item id="halfMarathon" label="@Strings.DistanceHalfMarathon" />
+	<menu-item id="tenKm" label="@Strings.DistanceTenKm" />
+	<menu-item id="fiveKm" label="@Strings.DistanceFiveKm" />
+</menu>

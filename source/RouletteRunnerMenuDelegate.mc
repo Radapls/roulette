@@ -16,7 +16,6 @@ class RouletteRunnerMenuDelegate extends WatchUi.MenuInputDelegate {
 		MenuInputDelegate.initialize();
 	}
 
-
 	function startRouletteSpin() {
         isAnimating = true;
         elapsedTime = 0;
@@ -28,7 +27,7 @@ class RouletteRunnerMenuDelegate extends WatchUi.MenuInputDelegate {
         if (elapsedTime >= animationDuration) {
             timer.stop();
             isAnimating = false;
-			animationFinished = false;
+            animationFinished = false;
 
             randomIndex = Math.rand() % itemSize;
             view.setSelectedIndex(randomIndex);
@@ -40,7 +39,7 @@ class RouletteRunnerMenuDelegate extends WatchUi.MenuInputDelegate {
         randomIndex = Math.rand() % itemSize;
         view.setSelectedIndex(randomIndex);
 
-		animationFinished = true;
+        animationFinished = true;
         WatchUi.requestUpdate();
         elapsedTime += interval;
     }
@@ -48,6 +47,13 @@ class RouletteRunnerMenuDelegate extends WatchUi.MenuInputDelegate {
 	function onMenuItem( item ) {
 		if ( item == :spin ) {
 			startRouletteSpin();
+        }
+		else if (item == :distance) {
+        WatchUi.pushView(
+            new Rez.Menus.RouletteRunnerDistancesMenu(),
+            new RouletteRunnerMenuDistancesDelegate(view), // pass the view here
+            WatchUi.SLIDE_IMMEDIATE
+        );
 		} else if ( item == :exit ) {
 			System.exit();
 		}

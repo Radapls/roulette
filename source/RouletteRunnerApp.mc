@@ -5,14 +5,22 @@ using Toybox.Timer;
 
 
 class RouletteRunnerApp extends Application.AppBase {
+    private var _selectedRouletteData = null;
 
     function initialize() {
         AppBase.initialize();
     }
 
-    function onStart(state) { }
+    function getSelectedRouletteData() {
+        if (_selectedRouletteData == null) {
+            _selectedRouletteData = Application.loadResource(Rez.JsonData.fiveKm);
+        }
+        return _selectedRouletteData;
+    }
 
-    function onStop(state) { }
+    function setSelectedRouletteData(data) {
+        _selectedRouletteData = data;
+    }
 
     function getInitialView() {
         var view = new RouletteRunnerView();

@@ -1,4 +1,5 @@
 <menu id="RouletteRunnerMenu">
 	<menu-item id="spin" label="@Strings.SpinMenuLabel" />
+	<menu-item id="distance" label="@Strings.DistancesMenuLabel" />
 	<menu-item id="exit" label="@Strings.ExitMenuLabel" />
 </menu>

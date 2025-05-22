@@ -2,7 +2,13 @@
     <string id="AppName">Roleta do corredor</string>
 
 	<string id="SpinMenuLabel">Girar</string>
+	<string id="DistancesMenuLabel">Distâncias</string>
 	<string id="ExitMenuLabel">Sair</string>
+
+	<string id="DistanceMarathon" >Maratona</string>
+	<string id="DistanceHalfMarathon">Meia Maratona</string>
+	<string id="DistanceTenKm" >10 KM</string>
+	<string id="DistanceFiveKm">5 KM</string>
 
 	<string id="WinTextLabel">Hoje você corre: </string>
 w</strings>

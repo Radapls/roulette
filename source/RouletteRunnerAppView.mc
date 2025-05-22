@@ -3,19 +3,33 @@ using Toybox.WatchUi;
 using Toybox.Math;
 using Toybox.System;
 using Toybox.Application;
+using Toybox.Lang;
 
 
-public var rouletteNumbers = ["0K", "2K", "5K", "8K", "10K", "15K", "18K", "21K","25K", "28K", "30K", "32K", "35K", "38K", "42K"];
+public var rouletteNumbers = [];
 public var selectedIndex = null;
-public var itemSize = rouletteNumbers.size();
-public var winText = WatchUi.loadResource( Rez.Strings.WinTextLabel );
+public var itemSize as Lang.Number = 0;
+public var winText;
+
 
 class RouletteRunnerView extends WatchUi.View {
     function initialize() {
         View.initialize();
     }
 
-    function onShow() {	}
+    function onShow() {
+    var app = Application.getApp();
+    rouletteNumbers = app.getSelectedRouletteData();
+
+        if (rouletteNumbers == null || rouletteNumbers.size() == 0) {
+            // Fallback to default if nothing selected
+            rouletteNumbers = Application.loadResource(Rez.JsonData.fiveKm);
+        }
+
+        itemSize = rouletteNumbers.size();
+
+        winText = WatchUi.loadResource(Rez.Strings.WinTextLabel);
+    }
 
     function onLayout(dc) {
         setLayout(Rez.Layouts.MainLayout(dc));
@@ -60,7 +74,7 @@ class RouletteRunnerView extends WatchUi.View {
                 x,
                 y,
                 Graphics.FONT_SYSTEM_XTINY,
-                rouletteNumbers[i],
+                (rouletteNumbers[i] as Lang.String),
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
             );
         }
@@ -74,6 +88,20 @@ class RouletteRunnerView extends WatchUi.View {
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
             );
         }
-
     }
+
+    function updateDistanceData() {
+        var app = Application.getApp();
+        rouletteNumbers = app.getSelectedRouletteData();
+
+        if (rouletteNumbers == null || rouletteNumbers.size() == 0) {
+            rouletteNumbers = Application.loadResource(Rez.JsonData.fiveKm);
+        }
+
+        itemSize = rouletteNumbers.size();
+        selectedIndex = null;
+
+        requestUpdate();
+    }
+
 }
